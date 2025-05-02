@@ -1,0 +1,13 @@
+Loading project configuration... 
+Success
+[36m(ClientAppActor pid=16129)[0m ✅ Loaded model checkpoint from disk.
+[36m(ClientAppActor pid=16129)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(ClientAppActor pid=16127)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=16126)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=16126)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=16128)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=16127)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=16129)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=16128)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=16127)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=16129)[0m ✅ Loaded model checkpoint from disk.[32m [repeated 3x across cluster][0m
