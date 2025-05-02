@@ -181,7 +181,3 @@ Apache License 2.0
 Project by **Nguyen Dong Hai**  
 Includes open-source tools: Flower, HuggingFace Transformers, PyTorch, Mozilla Thunderbird
 ```
-
----
-
-Let me know if you want a version in **markdown file format**, or you'd like to **auto-generate `.xpi` from your extension** too.
