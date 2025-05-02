@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 10px; }
+    #result { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h3>Phishing Email Detector</h3>
+  <button id="checkBtn">Check Selected Email</button>
+  <p id="result">Status: -</p>
+  <p>Phishing Rating: <span id="confidence">-</span></p>
+  <div id="bar" style="width: 100%; height: 20px; background: #ccc; border-radius: 5px;">
+    <div id="bar-fill" style="height: 100%; width: 0%; background: green; border-radius: 5px;"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

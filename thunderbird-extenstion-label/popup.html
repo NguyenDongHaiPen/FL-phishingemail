@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Labeled Emails</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 10px;
+      width: 320px;
+    }
+    h2 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .stats {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .email-preview {
+      font-size: 12px;
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+      word-wrap: break-word;
+    }
+    button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Labeled Emails Summary</h2>
+  <div class="stats" id="stats">Loading...</div>
+  <div id="previews"></div>
+  <div style="margin-top: 15px;">
+    <button id="downloadBtn">📥 Download CSV</button>
+    <button id="resetBtn">🗑️ Reset</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
