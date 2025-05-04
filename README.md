@@ -2,6 +2,17 @@
 
 This project demonstrates a complete Federated Learning (FL) pipeline to detect phishing emails using HuggingFace Transformers, Flower, and PyTorch. It includes both a server–client FL training system and a Thunderbird extension that classifies emails locally using the trained model — ensuring privacy, security, and decentralization.
 
+
+## 🛠️ Built With
+
+| Tool/Framework        | Purpose                                |
+|-----------------------|----------------------------------------|
+| [Flower](https://flower.ai)              | Federated learning orchestration     |
+| [PyTorch](https://pytorch.org/)          | Model training and inference         |
+| [HuggingFace Transformers](https://huggingface.co/) | Pretrained NLP models               |
+| [Docker](https://www.docker.com/)        | Containerized deployment             |
+| [Mozilla Thunderbird](https://www.thunderbird.net/) | Email platform for extension testing |
+
 ## 🗂 Project Structure
 
 ```
@@ -14,6 +25,39 @@ fl-test/
 ├── pyproject.toml         # Flower config and Python dependencies
 └── README.md              # This file
 ```
+## 🧰 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/NguyenDongHaiPen/FL-phishingemail.git
+cd FL-phishingemail
+```
+
+### Set Up the Environment
+
+Make sure Python 3.9+ is installed.
+
+```bash
+pip install -e .
+```
+
+(Optional) Create a virtual environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+### Run a Sample Simulation
+
+```bash
+flwr run .
+```
+
+You should see logs of federated rounds, client updates, and evaluation results.
+
+---
 
 ## 🚀 1. Training Setup (Simulation Engine)
 
@@ -134,46 +178,3 @@ Apache License 2.0
 Research project (2024/2025): *Federated Learning for Phishing Email Detection*
 
 
-## 🧰 Getting Started
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/NguyenDongHaiPen/FL-phishingemail.git
-cd FL-phishingemail
-```
-
-### Set Up the Environment
-
-Make sure Python 3.9+ is installed.
-
-```bash
-pip install -e .
-```
-
-(Optional) Create a virtual environment:
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-### Run a Sample Simulation
-
-```bash
-flwr run .
-```
-
-You should see logs of federated rounds, client updates, and evaluation results.
-
----
-
-## 🛠️ Built With
-
-| Tool/Framework        | Purpose                                |
-|-----------------------|----------------------------------------|
-| [Flower](https://flower.ai)              | Federated learning orchestration     |
-| [PyTorch](https://pytorch.org/)          | Model training and inference         |
-| [HuggingFace Transformers](https://huggingface.co/) | Pretrained NLP models               |
-| [Docker](https://www.docker.com/)        | Containerized deployment             |
-| [Mozilla Thunderbird](https://www.thunderbird.net/) | Email platform for extension testing |
