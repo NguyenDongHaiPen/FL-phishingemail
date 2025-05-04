@@ -3,21 +3,18 @@
 This project demonstrates a complete Federated Learning (FL) pipeline to detect phishing emails using HuggingFace Transformers, Flower, and PyTorch. It includes both a server–client FL training system and a Thunderbird extension that classifies emails locally using the trained model — ensuring privacy, security, and decentralization.
 
 
-[Flower-badge]: https://img.shields.io/badge/Flower-Federated%20Learning-blue?style=for-the-badge
-[Flower-url]: https://flower.ai
+## 🛠️ Built With
+[![Flower][Flower-badge]][Flower-url]
 
-[PyTorch-badge]: https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge
-[PyTorch-url]: https://pytorch.org/
+[![PyTorch][PyTorch-badge]][PyTorch-url]
 
-[HuggingFace-badge]: https://img.shields.io/badge/HuggingFace-Transformers-yellow?style=for-the-badge
-[HuggingFace-url]: https://huggingface.co/
+[![HuggingFace][HuggingFace-badge]][HuggingFace-url]
 
-[Docker-badge]: https://img.shields.io/badge/Docker-Containers-blue?style=for-the-badge
-[Docker-url]: https://www.docker.com/
+[![Docker][Docker-badge]][Docker-url]
 
-[Thunderbird-badge]: https://img.shields.io/badge/Thunderbird-Email%20Client-8c9eff?style=for-the-badge
-[Thunderbird-url]: https://www.thunderbird.net/
+[![Thunderbird][Thunderbird-badge]][Thunderbird-url]
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🗂 Project Structure
 
@@ -191,4 +188,21 @@ Nguyen Dong Hai - donghai.pen@gmail.com - ITITWE19011@student.hcmiu.edu.vn - Hai
 Project Link: [](https://github.com/NguyenDongHaiPen/FL-phishingemail) https://github.com/NguyenDongHaiPen/FL-phishingemail
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+[Flower-badge]: https://img.shields.io/badge/Flower-Federated%20Learning-blue?style=for-the-badge
+[Flower-url]: https://flower.ai
+
+[PyTorch-badge]: https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge
+[PyTorch-url]: https://pytorch.org/
+
+[HuggingFace-badge]: https://img.shields.io/badge/HuggingFace-Transformers-yellow?style=for-the-badge
+[HuggingFace-url]: https://huggingface.co/
+
+[Docker-badge]: https://img.shields.io/badge/Docker-Containers-blue?style=for-the-badge
+[Docker-url]: https://www.docker.com/
+
+[Thunderbird-badge]: https://img.shields.io/badge/Thunderbird-Email%20Client-8c9eff?style=for-the-badge
+[Thunderbird-url]: https://www.thunderbird.net/
+
 
