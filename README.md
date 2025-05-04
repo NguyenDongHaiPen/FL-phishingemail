@@ -72,7 +72,7 @@ You should see logs of federated rounds, client updates, and evaluation results.
 ### ▶️ Run Local Federated Simulation
 
 ```bash
-cd fl-test
+cd "flowerfolder"
 flwr run .
 ```
 
