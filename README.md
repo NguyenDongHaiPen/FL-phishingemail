@@ -177,4 +177,12 @@ Apache License 2.0
 **Nguyen Dong Hai**  
 Research project (2024/2025): *Federated Learning for Phishing Email Detection*
 
+<!-- CONTACT -->
+## Contact
+
+Nguyen Dong Hai - donghai.pen@gmail.com - ITITWE19011@student.hcmiu.edu.vn - Hai10.Nguyen@live.uwe.ac.uk
+
+Project Link: [](https://github.com/NguyenDongHaiPen/FL-phishingemail)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
