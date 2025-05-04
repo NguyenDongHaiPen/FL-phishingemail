@@ -132,3 +132,48 @@ Apache License 2.0
 
 **Nguyen Dong Hai**  
 Research project (2024/2025): *Federated Learning for Phishing Email Detection*
+
+
+## 🧰 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/NguyenDongHaiPen/FL-phishingemail.git
+cd FL-phishingemail
+```
+
+### Set Up the Environment
+
+Make sure Python 3.9+ is installed.
+
+```bash
+pip install -e .
+```
+
+(Optional) Create a virtual environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+### Run a Sample Simulation
+
+```bash
+flwr run .
+```
+
+You should see logs of federated rounds, client updates, and evaluation results.
+
+---
+
+## 🛠️ Built With
+
+| Tool/Framework        | Purpose                                |
+|-----------------------|----------------------------------------|
+| [Flower](https://flower.ai)              | Federated learning orchestration     |
+| [PyTorch](https://pytorch.org/)          | Model training and inference         |
+| [HuggingFace Transformers](https://huggingface.co/) | Pretrained NLP models               |
+| [Docker](https://www.docker.com/)        | Containerized deployment             |
+| [Mozilla Thunderbird](https://www.thunderbird.net/) | Email platform for extension testing |
