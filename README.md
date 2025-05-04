@@ -3,15 +3,18 @@
 This project demonstrates a complete Federated Learning (FL) pipeline to detect phishing emails using HuggingFace Transformers, Flower, and PyTorch. It includes both a server–client FL training system and a Thunderbird extension that classifies emails locally using the trained model — ensuring privacy, security, and decentralization.
 
 
-## 🛠️ Built With
+🛠️ Built With
+[![Flower][Flower-badge]][Flower-url]
 
-| Tool/Framework        | Purpose                                |
-|-----------------------|----------------------------------------|
-| [Flower](https://flower.ai)              | Federated learning orchestration     |
-| [PyTorch](https://pytorch.org/)          | Model training and inference         |
-| [HuggingFace Transformers](https://huggingface.co/) | Pretrained NLP models               |
-| [Docker](https://www.docker.com/)        | Containerized deployment             |
-| [Mozilla Thunderbird](https://www.thunderbird.net/) | Email platform for extension testing |
+[![PyTorch][PyTorch-badge]][PyTorch-url]
+
+[![HuggingFace][HuggingFace-badge]][HuggingFace-url]
+
+[![Docker][Docker-badge]][Docker-url]
+
+[![Thunderbird][Thunderbird-badge]][Thunderbird-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🗂 Project Structure
 
