@@ -182,7 +182,7 @@ Research project (2024/2025): *Federated Learning for Phishing Email Detection*
 
 Nguyen Dong Hai - donghai.pen@gmail.com - ITITWE19011@student.hcmiu.edu.vn - Hai10.Nguyen@live.uwe.ac.uk
 
-Project Link: [](https://github.com/NguyenDongHaiPen/FL-phishingemail)
+Project Link: [](https://github.com/NguyenDongHaiPen/FL-phishingemail) https://github.com/NguyenDongHaiPen/FL-phishingemail
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
