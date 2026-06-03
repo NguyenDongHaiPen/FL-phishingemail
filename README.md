@@ -1,127 +1,76 @@
-# 🛡️ Federated Learning for Phishing Email Detection
+# 🛡️ Federated Learning for Phishing Email Detection with Poison-Forensics
 
-This project demonstrates a complete Federated Learning (FL) pipeline to detect phishing emails using HuggingFace Transformers, Flower, and PyTorch. It includes both a server–client FL training system and a Thunderbird extension that classifies emails locally using the trained model — ensuring privacy, security, and decentralization.
+[![Flower v1.16.0](https://img.shields.io/badge/Flower-1.16.0-blue?style=flat-square)](https://flower.ai)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red?style=flat-square)](https://pytorch.org/)
+[![HuggingFace](https://img.shields.io/badge/Transformers-DistilBERT-yellow?style=flat-square)](https://huggingface.co/)
+[![Docker](https://img.shields.io/badge/Docker-Containers-blue?style=flat-square)](https://www.docker.com/)
 
-
-## 🛠️ Built With
-[![Flower][Flower-badge]][Flower-url]
-
-[![PyTorch][PyTorch-badge]][PyTorch-url]
-
-[![HuggingFace][HuggingFace-badge]][HuggingFace-url]
-
-[![Docker][Docker-badge]][Docker-url]
-
-[![Thunderbird][Thunderbird-badge]][Thunderbird-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🗂 Project Structure
-
-```
-fl-test/
-├── fl_test/                # FL server and client code
-├── saved_model/           # Trained model (.pt)
-├── thunderbird-extension/ # Thunderbird extension (backend, manifest, UI)
-├── serverapp.Dockerfile   # Dockerfile for FL server
-├── clientapp.Dockerfile   # Dockerfile for FL clients
-├── pyproject.toml         # Flower config and Python dependencies
-└── README.md              # This file
-```
-## 🧰 Getting Started
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/NguyenDongHaiPen/FL-phishingemail.git
-cd FL-phishingemail
-```
-
-### Set Up the Environment
-
-Make sure Python 3.9+ is installed.
-
-```bash
-pip install -e .
-```
-
-(Optional) Create a virtual environment:
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-### Run a Sample Simulation
-
-```bash
-flwr run .
-```
-
-You should see logs of federated rounds, client updates, and evaluation results.
+A Federated Learning (FL) system for phishing email detection integrated with a digital forensic mechanism (Poison-Forensics) to identify and attribute malicious data/model poisoning attacks from Client nodes, protecting the integrity of the centrally aggregated model.
 
 ---
 
-## 🚀 1. Training Setup (Simulation Engine)
+## 🛠️ Tech Stack & Environment
 
-### 📦 Requirements
+- **Federated Learning Framework:** [Flower v1.16.0](https://flower.ai/docs/)
+- **Deep Learning Framework:** PyTorch & HuggingFace Transformers (Text classification using pre-trained **DistilBERT**)
+- **Inference Client:** Thunderbird Extension (connecting to local API) & Backend [FastAPI](https://fastapi.tiangolo.com/)
+- **Virtualization Environment:** Docker / Docker-compose (simulating realistic Non-IID distributed environments)
 
-- Python 3.9+
-- Install dependencies:
-  ```bash
-  pip install -e .
-  ```
+---
 
-### ▶️ Run Local Federated Simulation
+## 🗂️ Documentation Structure (AI-First Doc System)
 
-```bash
-cd "flowerfolder"
-flwr run .
+The documentation system is hierarchically organized to help AI Agents quickly understand context and execute tasks accurately:
+
+```
+FL-phishingemail/
+├── AGENTS.md                  # Supreme AI Agent rules and workflows
+├── README.md                  # Project overview and run instructions (This file)
+└── docs/
+    ├── flwr.md                # Flower Framework references and syntax
+    ├── architecture/
+    │   ├── data-models.md     # Data pipeline & Non-IID Dirichlet partitioning
+    │   ├── threat-model.md    # Threat model & MITRE ATT&CK (AML.T0006) specs
+    │   └── robust-aggregation.md # Robust aggregation strategies (Median, Trimmed Mean, Krum)
+    └── agent/
+        └── forensic-standards.md # Poison-Forensics indicators (L2 Norm, Cosine Similarity)
 ```
 
-This simulates a federated setup using Flower's local simulation engine across multiple clients. Final trained model is saved to `saved_model/model.pt`.
+---
 
-## 📨 2. Integrate Model into Thunderbird Extension
+## 🚀 Environment Simulation Guide (4 Clients)
 
-1. Copy the trained model to the extension:
+The project supports two simulation options: running locally using the Flower Simulation Engine (best for fast debugging) and running in a distributed environment using Docker Containers (best for network-level forensics testing).
+
+### Option 1: Local Simulation (Flower Simulation Engine)
+
+1. Install project dependencies in editable mode:
    ```bash
-   cp saved_model/model.pt thunderbird-extension/model/
+   pip install -e .
+   ```
+2. Run the simulation (Flower automatically handles the lifecycle of clients and servers on RAM/CPU):
+   ```bash
+   flwr run .
    ```
 
-2. Load the model in the extension backend:
-   ```python
-   model = torch.load("model/model.pt", map_location=torch.device("cpu"))
-   ```
+---
 
-3. Use the model to classify emails locally inside Thunderbird.
+### Option 2: Distributed Simulation using Docker (4 Nodes)
 
-## 🧪 3. Load the Extension into Thunderbird
+To test the forensics and poisoning scenarios, you can isolate clients into separate Docker containers.
 
-1. Open Thunderbird
-2. Go to Tools → Add-ons and Themes
-3. Click ⚙️ → “Install Add-on From File...”
-4. Select the `.xpi` or zipped extension folder
-5. Restart Thunderbird
-6. Test classification by selecting an email
-
-## 🐳 4. Docker-Based Federated Training Deployment
-
-Run the full system using Flower’s Deployment Engine and Docker containers.
-
-### Step 0: Create Docker Network
-
+#### Step 0: Create a Virtual Docker Network
 ```bash
 docker network create --driver bridge flwr-network
 ```
 
-### Step 1: Build the ServerApp Image
-
+#### Step 1: Build Images for ServerApp & ClientApp
 ```bash
 docker build -t flwr/serverapp:1.16.0 -f serverapp.Dockerfile .
+docker build -t flwr/clientapp:1.16.0 -f clientapp.Dockerfile .
 ```
 
-### Step 2: Start the SuperLink
-
+#### Step 2: Start the SuperLink (Central Coordinator)
 ```bash
 docker run --rm \
   -p 9091:9091 -p 9092:9092 -p 9093:9093 \
@@ -133,76 +82,57 @@ docker run --rm \
   --isolation process
 ```
 
-### Step 3: Start SuperNodes
+#### Step 3: Launch 4 SuperNodes (Representing 4 Data Partitions)
+Run the following 4 commands to set up port mappings for each client node:
 
-Repeat this for all 4 partitions with different ports:
 ```bash
+# Node 1 (Partition 0)
 docker run --rm -p 9094:9094 --network flwr-network --name supernode-1 --detach \
   flwr/supernode:1.16.0 --insecure --superlink superlink:9092 \
   --node-config "partition-id=0 num-partitions=4" \
   --clientappio-api-address 0.0.0.0:9094 --isolation process
+
+# Node 2 (Partition 1)
+docker run --rm -p 9095:9095 --network flwr-network --name supernode-2 --detach \
+  flwr/supernode:1.16.0 --insecure --superlink superlink:9092 \
+  --node-config "partition-id=1 num-partitions=4" \
+  --clientappio-api-address 0.0.0.0:9095 --isolation process
+
+# Node 3 (Partition 2)
+docker run --rm -p 9096:9096 --network flwr-network --name supernode-3 --detach \
+  flwr/supernode:1.16.0 --insecure --superlink superlink:9092 \
+  --node-config "partition-id=2 num-partitions=4" \
+  --clientappio-api-address 0.0.0.0:9096 --isolation process
+
+# Node 4 (Partition 3)
+docker run --rm -p 9097:9097 --network flwr-network --name supernode-4 --detach \
+  flwr/supernode:1.16.0 --insecure --superlink superlink:9092 \
+  --node-config "partition-id=3 num-partitions=4" \
+  --clientappio-api-address 0.0.0.0:9097 --isolation process
 ```
 
-### Step 4: Start the ServerApp
-
+#### Step 4: Run the ServerApp (Aggregator)
 ```bash
 docker run --rm --network flwr-network --name serverapp --detach \
   flwr/serverapp:1.16.0 --insecure --serverappio-api-address superlink:9091
 ```
 
-### Step 5: Start ClientApps
-
-Repeat for all 4 clients:
+#### Step 5: Start 4 ClientApps connected to the SuperNodes
 ```bash
-docker run --rm --network flwr-network --name client-1 --detach \
-  flwr/clientapp:1.16.0 --insecure --clientappio-api-address supernode-1:9094
+docker run --rm --network flwr-network --name client-1 --detach flwr/clientapp:1.16.0 --insecure --clientappio-api-address supernode-1:9094
+docker run --rm --network flwr-network --name client-2 --detach flwr/clientapp:1.16.0 --insecure --clientappio-api-address supernode-2:9095
+docker run --rm --network flwr-network --name client-3 --detach flwr/clientapp:1.16.0 --insecure --clientappio-api-address supernode-3:9096
+docker run --rm --network flwr-network --name client-4 --detach flwr/clientapp:1.16.0 --insecure --clientappio-api-address supernode-4:9097
 ```
 
-### Step 6: Run Federated Learning
-
+#### Step 6: Trigger Federated Learning Execution
 ```bash
 flwr run . local-deployment --stream
 ```
 
-## 📚 References
+---
 
-- [Flower Documentation](https://flower.ai/docs/)
-- [HuggingFace Transformers](https://huggingface.co/docs/transformers/)
-- [Thunderbird Extension Dev](https://developer.thunderbird.net/)
-- [PyTorch](https://pytorch.org/)
-
-## 📄 License
-
-Apache License 2.0
-
-## 👤 Author
-
-**Nguyen Dong Hai**  
-Research project (2024/2025): *Federated Learning for Phishing Email Detection*
-
-<!-- CONTACT -->
-## Contact
-
-Nguyen Dong Hai - donghai.pen@gmail.com - ITITWE19011@student.hcmiu.edu.vn - Hai10.Nguyen@live.uwe.ac.uk
-
-Project Link: [](https://github.com/NguyenDongHaiPen/FL-phishingemail) https://github.com/NguyenDongHaiPen/FL-phishingemail
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-[Flower-badge]: https://img.shields.io/badge/Flower-Federated%20Learning-blue?style=for-the-badge
-[Flower-url]: https://flower.ai
-
-[PyTorch-badge]: https://img.shields.io/badge/PyTorch-Deep%20Learning-red?style=for-the-badge
-[PyTorch-url]: https://pytorch.org/
-
-[HuggingFace-badge]: https://img.shields.io/badge/HuggingFace-Transformers-yellow?style=for-the-badge
-[HuggingFace-url]: https://huggingface.co/
-
-[Docker-badge]: https://img.shields.io/badge/Docker-Containers-blue?style=for-the-badge
-[Docker-url]: https://www.docker.com/
-
-[Thunderbird-badge]: https://img.shields.io/badge/Thunderbird-Email%20Client-8c9eff?style=for-the-badge
-[Thunderbird-url]: https://www.thunderbird.net/
-
-
+## 📄 License & Contact
+This project is distributed under the Apache License 2.0.
+- **Author:** Nguyen Dong Hai
+- **Email:** donghai.pen@gmail.com | ITITWE19011@student.hcmiu.edu.vn
