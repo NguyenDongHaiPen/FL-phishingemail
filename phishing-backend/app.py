@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -11,7 +12,7 @@ class EmailInput(BaseModel):
 model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
-model.load_state_dict(torch.load("model.pt", map_location="cpu"))
+model.load_state_dict(torch.load(os.path.join(os.path.dirname(__file__), "..", "04_experiments", "saved_models", "distilbert_backend_deployed.pt"), map_location="cpu"))
 model.eval()
 
 app = FastAPI()

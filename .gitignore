@@ -195,3 +195,12 @@ certs/
 logs/
 *.log
 forensic_reports/
+
+# macOS metadata
+.DS_Store
+*/.DS_Store
+**/.DS_Store
+
+# Restructuring script logs
+restructure_log_*.txt
+restructure_repo.py
