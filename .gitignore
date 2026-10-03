@@ -161,3 +161,37 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# =========================================================================
+# 🛡️ Federated Learning Phishing Project - Ignored Assets (Model/Data/Certs)
+# =========================================================================
+
+# Machine Learning Models & Weights
+saved_model/
+*.pt
+*.pth
+*.bin
+*.h5
+*.onnx
+*.ckpt
+
+# Raw & Partitioned Datasets
+data/
+*.csv
+*.json
+*.xlsx
+*.parquet
+
+# gRPC SSL/TLS Certificates & Private Keys (Red Team Security Audit Requirement)
+certs/
+*.pem
+*.crt
+*.key
+*.csr
+*.p12
+*.der
+
+# System Logs & Forensic Reports
+logs/
+*.log
+forensic_reports/
